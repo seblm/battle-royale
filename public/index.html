@@ -17,21 +17,16 @@
 </div>
 <script>
     $(document).ready(function () {
-        categories = [
-            { "label": "monlabel", "identifier": "monidentifier" },
-            { "label": "monlabel2", "identifier": "monidentifier2" }
-        ];
-        regions = ["alsace", "aquitaine"];
-        // $.ajax('/categories').done(function (categories) {
-        for (var i = 0; i < categories.length; i++) {
-            $('#category').append('<option value="' + categories[i].identifier + '">' + categories[i].label + '</option>');
-        }
-        // };
-        // $.ajax('/regions').done(function (regions) {
-        for (var i = 0; i < regions.length; i++) {
-            $('#region').append('<option value="' + regions[i] + '">' + regions[i] + '</option>');
-        }
-        // };
+        $.ajax('/categories').done(function (categories) {
+            for (var i = 0; i < categories.length; i++) {
+                $('#category').append('<option value="' + categories[i].identifier + '">' + categories[i].label + '</option>');
+            }
+        });
+        $.ajax('/regions').done(function (regions) {
+            for (var i = 0; i < regions.length; i++) {
+                $('#region').append('<option value="' + regions[i] + '">' + regions[i] + '</option>');
+            }
+        });
     })
 </script>
 </body>
