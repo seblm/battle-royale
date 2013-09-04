@@ -1,14 +1,38 @@
+<!DOCTYPE html>
 <html>
-    <body>
-        <div class="container">
-            <div class="row">
-                <form>
-                    <label for="category">Category</label>
-                    <select id="category">
-                        <option>Toutes</option>
-                    </select>
-                </form>
-            </div>
-        </div>
-    </html>
+<head>
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <form>
+            <label for="category">Category</label>
+            <select id="category"></select>
+            <label for="region">Region</label>
+            <select id="region"></select>
+            <br/>
+        </form>
+    </div>
+</div>
+<script>
+    $(document).ready(function () {
+        categories = [
+            { "label": "monlabel", "identifier": "monidentifier" },
+            { "label": "monlabel2", "identifier": "monidentifier2" }
+        ];
+        regions = ["alsace", "aquitaine"];
+        // $.ajax('/categories').done(function (categories) {
+        for (var i = 0; i < categories.length; i++) {
+            $('#category').append('<option value="' + categories[i].identifier + '">' + categories[i].label + '</option>');
+        }
+        // };
+        // $.ajax('/regions').done(function (regions) {
+        for (var i = 0; i < regions.length; i++) {
+            $('#region').append('<option value="' + regions[i] + '">' + regions[i] + '</option>');
+        }
+        // };
+    })
+</script>
 </body>
+</html>
