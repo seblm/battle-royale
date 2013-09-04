@@ -3,7 +3,8 @@
 # ~~~~
 
 # Home page
-GET     /                           controllers.Application.index
-
+GET        /                    controllers.Assets.at(path="/public", file="index.html")
+GET        /regions             controllers.Application.regions
+GET     /categories                 controllers.Application.categories
 # Map static resources from the /public folder to the /assets URL path
-GET     /assets/*file               controllers.Assets.at(path="/public", file)
+GET        /assets/*file        controllers.Assets.at(path="/public", file)
